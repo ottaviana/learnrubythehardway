@@ -1,0 +1,21 @@
+from_file, to_file = ARGV
+
+puts """Copying from #{from_file} to #{to_file}.
+The input file is #{to_file.length} bytes long.
+Does the output file exist? #{File.exist?(to_file)}
+Ready, hit RETURN to continue, CTRL-C to abort.
+"""
+
+# we could do these two on one line, how?
+in_file = open(from_file, 'w')
+#indata = in_file.read
+
+$stdin.gets
+
+out_file = open(to_file, 'w')
+out_file.write(to_file)
+
+puts "Alright, all done."
+
+out_file.close
+in_file.close
